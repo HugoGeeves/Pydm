@@ -22,7 +22,7 @@ def acceleration(**kwargs):
                 (
                     vehicle_a.velocity * approaching_rate
                 ) / (
-                2 * sqrt(vehicle_a.maximum_acceleration * vehicle_a.comfortable_deceleration)
+                    2 * sqrt(vehicle_a.maximum_acceleration * vehicle_a.comfortable_deceleration)
                 )
         )
 

@@ -1,14 +1,22 @@
 class Truck:
 
-    def __init__(self):
-        self.lane = 0
-        self.position = 0
-        self.velocity = 10
-        self.desired_velocity = 30
-        self.safe_time_headway = 2.0
-        self.maximum_acceleration = 0.62
-        self.comfortable_deceleration = 1.67
-        self.acceleration_exponent = 4
-        self.minimum_spacing = 2
-        self.length = 20
-        self.colour = "red"
+    lane = 0
+    position = 0
+    velocity = 10
+    desired_velocity = 30
+    safe_time_headway = 2.0
+    maximum_acceleration = 0.62
+    comfortable_deceleration = 1.67
+    acceleration_exponent = 4
+    minimum_spacing = 2
+    length = 20
+    colour = "red"
+
+    @classmethod
+    def get_parameter(cls, parameter):
+        return getattr(cls, parameter)
+
+    @classmethod
+    def update_parameters(cls, updates):
+        for key, value in updates.items():
+            setattr(cls, key, value)

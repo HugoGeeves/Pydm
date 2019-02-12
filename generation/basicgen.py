@@ -5,15 +5,17 @@ import random
 import math
 
 
-
-
 class BasicTrafficGen:
 
+    minimum_headway = 1.2
+    free_vehicle_proportion = 5.8
+    scale_parameter = 0.9
+
     def __init__(self, lane=0):
-        self.minimum_headway = 1.2
-        self.free_vehicle_proportion = 5.8
-        self.scale_parameter = 0.9
+
         self.lane = lane
+        self.car_model = Car
+        self.truck_model = Truck
         random.seed()
 
     def next_headway_interval(self):
@@ -22,10 +24,19 @@ class BasicTrafficGen:
         return t
 
     def next_vehicle(self):
-        vehicle = random.choices(population=[Car(), Truck()], weights=[0.9, 0.1])[0]
+        vehicle = random.choices(population=[self.car_model(), self.truck_model()], weights=[0.9, 0.1])[0]
         vehicle.lane = self.lane
         vehicle.desired_velocity = random.gauss(vehicle.desired_velocity, 4.)
         vehicle.safe_time_headway = vehicle.safe_time_headway + random.paretovariate(3.)
         vehicle.maximum_acceleration = random.gauss(vehicle.maximum_acceleration, 0.05)
         vehicle.comfortable_deceleration = random.gauss(vehicle.comfortable_deceleration, 0.05)
         return vehicle
+
+    @classmethod
+    def update_parameters(cls, updates):
+        for key, value in updates.items():
+            setattr(cls, key, value)
+
+    @classmethod
+    def get_parameter(cls, parameter):
+        return getattr(cls, parameter)
