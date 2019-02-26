@@ -1,4 +1,7 @@
-class Car:
+from vehicleclasses.vehicle import Vehicle
+
+
+class Car(Vehicle):
 
     lane = 0
     position = 0
@@ -9,14 +12,6 @@ class Car:
     comfortable_deceleration = 1.67
     acceleration_exponent = 4
     minimum_spacing = 2
+    weight = 300
     length = 5
     colour = "blue"
-
-    @classmethod
-    def get_parameter(cls, parameter):
-        return getattr(cls, parameter)
-
-    @classmethod
-    def update_parameters(cls, updates):
-        for key, value in updates.items():
-            setattr(cls, key, value)

@@ -34,7 +34,7 @@ class MainWindow(object):
         self.y = 100
         self.i = 0
         self.canvas.pack(fill=BOTH, expand=1)
-        self.root.after(0, self.animation)
+        #self.root.after(0, self.animation)
         self.root.mainloop()
 
     def animation(self):
@@ -52,6 +52,8 @@ class MainWindow(object):
 
             self.i = self.i + 1
 
+
+
         self.root.after(50, self.animation)
 
     def stop(self):
@@ -65,6 +67,10 @@ class MainWindow(object):
 
     def play(self):
         self.animation_state = "PLAY"
+        for i in range(0, 1000):
+            self.sim.step(i)
+            print(i)
+        print("done")
 
     def exit(self):
 

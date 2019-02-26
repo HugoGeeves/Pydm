@@ -47,6 +47,10 @@ def simulation_form(sim, window):
                          sim.update_parameters(parse_entries(e))))
     b1.pack(side=LEFT, padx=5, pady=5)
 
+def imhom_form(sim, window):
+
+    window.title = "Add imomogenous zone"
+    fields = ["Zone Start position", "Zone End Position", "New Safe Time Headway"]
 
 def make_fields(root, fields, object):
     entries = []

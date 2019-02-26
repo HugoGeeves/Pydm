@@ -34,5 +34,3 @@ def acceleration(**kwargs):
     acc = free_road_term + interaction_term
 
     return acc
-
-

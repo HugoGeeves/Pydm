@@ -1,5 +1,9 @@
 import generation.basicgen
+from simulation.bridgedetector import BridgeDetector
 from simulation.compute import acceleration
+from simulation.inhomzone import InhomZone
+from simulation.pointdetector import PointDetector
+from simulation.spacedetector import SpaceDetector
 
 
 class BasicSim:
@@ -10,6 +14,10 @@ class BasicSim:
 
     def __init__(self):
         self.vehicles = []
+        self.inhom_zones = [InhomZone(100, 500, 3.6), InhomZone(800,1100,4.2)]
+        self.point_detectors = [PointDetector(150, "flow")]
+        self.space_detectors = [SpaceDetector(300, 500, "flow", 30)]
+        self.bridge_detector = [BridgeDetector()]
         self.next_gen_times = 0
         self.t_start = 0
         self.x_start = 0
@@ -28,7 +36,17 @@ class BasicSim:
 
         vehicles.sort(key=lambda obj: obj.position)
 
+        for detector in self.point_detectors:
+            detector.record(vehicles, time)
+        for detector_space in self.space_detectors:
+            detector_space.record(vehicles, time)
+        if self.bridge_detector:
+            self.bridge_detector[0].record(vehicles)
+
         for index in range(0, len(vehicles)):
+
+            vehicles[index].zone_update(self.inhom_zones)
+
             if vehicles[index] != vehicles[-1]:
                 acc = acceleration(vehicle_a=vehicles[index], vehicle_b=vehicles[index+1])
             else:
