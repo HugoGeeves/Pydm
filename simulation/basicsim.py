@@ -14,7 +14,7 @@ class BasicSim:
 
     def __init__(self):
         self.vehicles = []
-        self.inhom_zones = [InhomZone(100, 500, 3.6), InhomZone(800,1100,4.2)]
+        self.inhom_zones = [InhomZone(100, 500, 6.6), InhomZone(800,1100,4.2)]
         self.point_detectors = [PointDetector(150, "flow")]
         self.space_detectors = [SpaceDetector(300, 500, "flow", 30)]
         self.bridge_detector = [BridgeDetector()]
@@ -30,7 +30,12 @@ class BasicSim:
         h = self.step_size
         time = self.t_start + i * h
 
-        if time >= self.next_gen_times:
+        try:
+            obstruction = vehicles[0].position - vehicles[0].length
+        except IndexError:
+            obstruction = 200
+
+        if time >= self.next_gen_times and (obstruction > 40):
             vehicles.insert(0, self.generator.next_vehicle())
             self.next_gen_times = time + self.generator.next_headway_interval()
 
@@ -41,7 +46,7 @@ class BasicSim:
         for detector_space in self.space_detectors:
             detector_space.record(vehicles, time)
         if self.bridge_detector:
-            self.bridge_detector[0].record(vehicles)
+            self.bridge_detector[0].record(vehicles, time)
 
         for index in range(0, len(vehicles)):
 
@@ -52,12 +57,15 @@ class BasicSim:
             else:
                 acc = acceleration(vehicle_a=vehicles[index])
 
-            vehicles[index].position += h*vehicles[index].velocity
-            vehicles[index].velocity += h*acc
+            vehicles[index].new_position += h*vehicles[index].velocity
+            vehicles[index].new_velocity += h*acc
 
             if vehicles[index].position > x_end or vehicles[index].position < x_start:
                 vehicles.remove(vehicles[index])
 
+        for vehicle in vehicles:
+            vehicle.position = vehicle.new_position
+            vehicle.velocity = vehicle.new_velocity
         return vehicles
 
     @classmethod

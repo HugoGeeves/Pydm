@@ -5,9 +5,9 @@ class BridgeDetector:
         self.record_time = 0
         self.recorded_loads = []
 
-    def record(self, vehicles):
+    def record(self, vehicles, time):
             current_load = 0
             for vehicle in vehicles:
                     current_load = current_load + vehicle.weight
-            self.recorded_loads.append(current_load)
+            self.recorded_loads.append((time, current_load))
 

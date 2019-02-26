@@ -15,3 +15,7 @@ class Car(Vehicle):
     weight = 300
     length = 5
     colour = "blue"
+
+    def __init__(self):
+        self.new_velocity = 10
+        self.new_position = 0

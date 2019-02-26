@@ -15,7 +15,7 @@ class SpaceDetector:
         for vehicle in vehicles:
             if self.is_inside(vehicle):
                     current_vehicles.append(vehicle.velocity)
-        self.recorded_speeds.append(current_vehicles)
+        self.recorded_speeds.append((time, current_vehicles))
         self.record_time = time
 
     def is_inside(self, vehicle):
