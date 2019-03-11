@@ -1,26 +1,55 @@
+from numpy import mean
+
+
 class SpaceDetector:
 
-    def __init__(self, start, end, data_type, time_interval):
+    def __init__(self, start, end, data_type, agg_time_period, microscopic):
         self.start = start
         self.end = end
+        self.length = end-start
         self.type = data_type
-        self.time_interval = time_interval
-        self.recorded_speeds = []
-        self.record_time = 0
+        self.agg_time_period = agg_time_period
+        self.microscopic = False
+        self.microscopic_data = []
+        self.agg_density = []
+        self.agg_speed = []
+        self.snapshots = []
+        self.prev_agg = 0
 
     def record(self, vehicles, time):
-        if time < (self.record_time + self.time_interval):
-            return
+        if (self.prev_agg + self.agg_time_period) < time:
+            self.aggregate(time)
+
         current_vehicles = []
         for vehicle in vehicles:
             if self.is_inside(vehicle):
                     current_vehicles.append(vehicle.velocity)
-        self.recorded_speeds.append((time, current_vehicles))
-        self.record_time = time
+        self.snapshots.append((time, current_vehicles))
 
     def is_inside(self, vehicle):
         if self.start < vehicle.position < self.end:
             return True
         else:
             return False
+
+    def aggregate(self, time):
+        snapshot_amount = len(self.snapshots)
+        sum_density = 0
+        sum_avg_speed = 0
+
+        if self.type == "flow":
+            for snapshot in self.snapshots:
+                sum_density = sum_density + (len(snapshot[1])/self.length)
+            average_density = sum_density/snapshot_amount
+            self.agg_density.append((time, average_density))
+        if self.type == "speed":
+            for snapshot in self.snapshots:
+                sum_avg_speed = sum_avg_speed + mean(snapshot[1])
+            average_speed = sum_avg_speed/snapshot_amount
+            self.agg_speed.append((time, average_speed))
+
+        if self.microscopic:
+            self.microscopic_data.append(self.snapshots)
+        self.snapshots = []
+        self.prev_agg = time
 

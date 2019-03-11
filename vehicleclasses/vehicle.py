@@ -24,9 +24,6 @@ class Vehicle:
         self.in_zone = False
         self.safe_time_headway = self.previous_safe_time_headway
 
-
-
-
     @classmethod
     def get_parameter(cls, parameter):
         return getattr(cls, parameter)

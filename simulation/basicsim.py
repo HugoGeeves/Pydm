@@ -14,9 +14,9 @@ class BasicSim:
 
     def __init__(self):
         self.vehicles = []
-        self.inhom_zones = [InhomZone(100, 500, 6.6), InhomZone(800,1100,4.2)]
-        self.point_detectors = [PointDetector(150, "flow")]
-        self.space_detectors = [SpaceDetector(300, 500, "flow", 30)]
+        self.inhom_zones = []
+        self.point_detectors = [PointDetector(150, "flow", 30, False)]
+        self.space_detectors = [SpaceDetector(300, 500, "flow", 30, False)]
         self.bridge_detector = [BridgeDetector()]
         self.next_gen_times = 0
         self.t_start = 0

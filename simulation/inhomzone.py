@@ -1,15 +1,13 @@
 class InhomZone:
 
     def __init__(self, start, end, new_safe_time_headway):
-        self.start = start
-        self.end = end
+        self.zone_start_position = start
+        self.zone_end_position = end
         self.new_safe_time_headway = new_safe_time_headway#
 
-    @classmethod
-    def get_parameter(cls, parameter):
-        return getattr(cls, parameter)
+    def get_parameter(self, parameter):
+        return getattr(self, parameter)
 
-    @classmethod
-    def update_parameters(cls, updates):
+    def update_parameters(self, updates):
         for key, value in updates.items():
-            setattr(cls, key, value)
+            setattr(self, key, value)
