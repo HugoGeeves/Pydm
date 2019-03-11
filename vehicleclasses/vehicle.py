@@ -15,7 +15,7 @@ class Vehicle:
 
     def zone_update(self, zones):
         for zone in zones:
-                if zone.start <= self.position <= zone.end:
+                if zone.zone_start_position <= self.position <= zone.zone_end_position:
                     if not self.in_zone:
                         self.previous_safe_time_headway = self.safe_time_headway
                         self.safe_time_headway = zone.new_safe_time_headway

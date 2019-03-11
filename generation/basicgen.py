@@ -1,4 +1,5 @@
 from vehicleclasses.Car import Car
+from vehicleclasses.Platoon import Platoon
 from vehicleclasses.Truck import Truck
 
 import random
@@ -16,6 +17,7 @@ class BasicTrafficGen:
         self.lane = lane
         self.car_model = Car
         self.truck_model = Truck
+        self.platoon_model = Platoon
         random.seed()
 
     def next_headway_interval(self):
@@ -24,7 +26,7 @@ class BasicTrafficGen:
         return t
 
     def next_vehicle(self):
-        vehicle = random.choices(population=[self.car_model(), self.truck_model()], weights=[0.9, 0.1])[0]
+        vehicle = random.choices(population=[self.car_model(), self.truck_model(), self.platoon_model()], weights=[0.8, 0.1, 0.1])[0]
         vehicle.lane = self.lane
         vehicle.desired_velocity = random.gauss(vehicle.desired_velocity, 4.)
         vehicle.safe_time_headway = vehicle.safe_time_headway + random.paretovariate(3.)

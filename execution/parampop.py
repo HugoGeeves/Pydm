@@ -1,8 +1,11 @@
 from tkinter import *
 from inflection import underscore
 
-from execution.zone_creator import create_zone, delete_zone
+from execution.zone_creator import create_zone, delete_zone, create_point_detector, delete_point_detector, \
+    create_space_detector, delete_space_detector
 from simulation.inhomzone import InhomZone
+from simulation.pointdetector import PointDetector
+from simulation.spacedetector import SpaceDetector
 
 
 def generator_form(sim, window):
@@ -56,9 +59,10 @@ def inhom_form(sim, window):
     window.title = "Add inhomogenous zone"
     fields = ["Zone Start position", "Zone End Position", "New Safe Time Headway"]
     variables = make_fields(window, fields, InhomZone, create=True)
+
     b1 = Button(window, text='Save',
                 command=(lambda e=variables:
-                         create_zone(sim, parse_entries(e))))
+                         create_zone(sim, parse_entries(e), window)))
     b1.pack(side=LEFT, padx=5, pady=5)
 
 
@@ -69,7 +73,7 @@ def specific_inhom_form(sim, window, zone):
     variables = make_fields(window, fields, zone)
     b1 = Button(window, text='Save',
                 command=(lambda e=variables:
-                         create_zone(sim, parse_entries(e))))
+                         create_zone(sim, parse_entries(e), window, zone=zone)))
     b2 = Button(window, text="Delete",
                 command=(lambda z=zone:
                          delete_zone(sim, window, zone)))
@@ -81,26 +85,106 @@ def point_detector_form(sim, window):
 
     window.title = "Add point detector"
     fields = ["Position", "Aggregation Period"]
-    variables = make_fields(window, fields, InhomZone, create=True)
+
+    variables = make_fields(window, fields, PointDetector, create=True)
+    data_type = StringVar()
+    data_type.set("Speed")
+    microscopic = BooleanVar()
+    rb1 = Radiobutton(window, text="Speed", variable=data_type, value="Speed")
+    rb2 = Radiobutton(window, text="Flow", variable=data_type, value="Flow")
+    rb3 = Checkbutton(window, text="Record Microscopic", variable=microscopic)
+    rb1.pack(side=TOP, fill=X, padx=5, pady=5)
+    rb2.pack(side=TOP, fill=X, padx=5, pady=5)
+    rb3.pack(side=TOP, fill=X, padx=5, pady=5)
+    variables.append(("Data Type", data_type))
+    variables.append(("Record Microscopic", microscopic))
     b1 = Button(window, text='Save',
                 command=(lambda e=variables:
-                         create_zone(sim, parse_entries(e))))
+                         create_point_detector(sim, parse_entries(e), window)))
+
     b1.pack(side=LEFT, padx=5, pady=5)
 
 
-def specific_point_detector_form(sim, window, zone):
-
-    window.title = "Edit point detector"
+def specific_point_detector_form(sim, window, detector):
+    window.title = "Add point detector"
     fields = ["Position", "Aggregation Period"]
-    variables = make_fields(window, fields, zone)
+
+    variables = make_fields(window, fields, detector)
+    data_type = StringVar()
+    microscopic = BooleanVar()
+
+    data_type.set(detector.get_parameter(underscore("Data Type").replace(" ", "_")))
+    microscopic.set(detector.get_parameter(underscore("Microscopic").replace(" ", "_")))
+
+    rb1 = Radiobutton(window, text="Speed", variable=data_type, value="Speed")
+    rb2 = Radiobutton(window, text="Flow", variable=data_type, value="Flow")
+    rb3 = Checkbutton(window, text="Record Microscopic", variable=microscopic)
+    rb1.pack(side=TOP, fill=X, padx=5, pady=5)
+    rb2.pack(side=TOP, fill=X, padx=5, pady=5)
+    rb3.pack(side=TOP, fill=X, padx=5, pady=5)
+    variables.append(("Data Type", data_type))
+    variables.append(("Record Microscopic", microscopic))
     b1 = Button(window, text='Save',
                 command=(lambda e=variables:
-                         create_zone(sim, parse_entries(e))))
+                         create_point_detector(sim, parse_entries(e), window, detector=detector)))
     b2 = Button(window, text="Delete",
-                command=(lambda z=zone:
-                         delete_zone(sim, window, zone)))
+                command=(lambda d=detector:
+                         delete_point_detector(sim, window, detector)))
     b1.pack(side=LEFT, padx=5, pady=5)
     b2.pack(side=LEFT, padx=5, pady=5)
+
+def space_detector_form(sim, window):
+
+    window.title = "Add space detector"
+    fields = ["Start", "End", "Aggregation Period"]
+
+    variables = make_fields(window, fields, SpaceDetector, create=True)
+    data_type = StringVar()
+    data_type.set("Speed")
+    microscopic = BooleanVar()
+    rb1 = Radiobutton(window, text="Speed", variable=data_type, value="Speed")
+    rb2 = Radiobutton(window, text="Flow", variable=data_type, value="Flow")
+    rb3 = Checkbutton(window, text="Record Microscopic", variable=microscopic)
+    rb1.pack(side=TOP, fill=X, padx=5, pady=5)
+    rb2.pack(side=TOP, fill=X, padx=5, pady=5)
+    rb3.pack(side=TOP, fill=X, padx=5, pady=5)
+    variables.append(("Data Type", data_type))
+    variables.append(("Record Microscopic", microscopic))
+    b1 = Button(window, text='Save',
+                command=(lambda e=variables:
+                         create_space_detector(sim, parse_entries(e), window)))
+
+    b1.pack(side=LEFT, padx=5, pady=5)
+
+
+def specific_space_detector_form(sim, window, detector):
+    window.title = "Add space detector"
+    fields = ["Start", "End", "Aggregation Period"]
+
+    variables = make_fields(window, fields, detector)
+    data_type = StringVar()
+    microscopic = BooleanVar()
+
+    data_type.set(detector.get_parameter(underscore("Data Type").replace(" ", "_")))
+    microscopic.set(detector.get_parameter(underscore("Microscopic").replace(" ", "_")))
+
+    rb1 = Radiobutton(window, text="Speed", variable=data_type, value="Speed")
+    rb2 = Radiobutton(window, text="Flow", variable=data_type, value="Flow")
+    rb3 = Checkbutton(window, text="Record Microscopic", variable=microscopic)
+    rb1.pack(side=TOP, fill=X, padx=5, pady=5)
+    rb2.pack(side=TOP, fill=X, padx=5, pady=5)
+    rb3.pack(side=TOP, fill=X, padx=5, pady=5)
+    variables.append(("Data Type", data_type))
+    variables.append(("Record Microscopic", microscopic))
+    b1 = Button(window, text='Save',
+                command=(lambda e=variables:
+                         create_space_detector(sim, parse_entries(e), window,detector=detector)))
+    b2 = Button(window, text="Delete",
+                command=(lambda d=detector:
+                         delete_space_detector(sim, window, detector)))
+    b1.pack(side=LEFT, padx=5, pady=5)
+    b2.pack(side=LEFT, padx=5, pady=5)
+
 
 def make_fields(root, fields, object, create=False):
     entries = []
@@ -126,7 +210,6 @@ def make_fields(root, fields, object, create=False):
         entries.append((field, ent))
     return entries
 
-def make_detector_fields()
 
 
 def validate(action, index, value_if_allowed,
@@ -144,6 +227,12 @@ def parse_entries(entries):
     attr_dict = dict()
     for entry in entries:
         attr_name = underscore(entry[0]).replace(" ", "_")
-        attr_dict[attr_name] = float(entry[1].get())
+        if attr_name == 'record_microscopic':
+            attr_dict[attr_name] = bool(entry[1].get())
+        else:
+            try:
+                attr_dict[attr_name] = float(entry[1].get())
+            except ValueError:
+                attr_dict[attr_name] = str(entry[1].get())
 
     return attr_dict

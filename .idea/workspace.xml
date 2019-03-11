@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e898bc4-165c-408f-a39e-b0ca5ebf5573" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/execution/statistics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vehicleclasses/Platoon.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/execution/parampop.py" beforeDir="false" afterPath="$PROJECT_DIR$/execution/parampop.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/execution/testsim.py" beforeDir="false" afterPath="$PROJECT_DIR$/execution/testsim.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/execution/zone_creator.py" beforeDir="false" afterPath="$PROJECT_DIR$/execution/zone_creator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generation/basicgen.py" beforeDir="false" afterPath="$PROJECT_DIR$/generation/basicgen.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/simulation/basicsim.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation/basicsim.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/inhomzone.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation/inhomzone.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/simulation/pointdetector.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation/pointdetector.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/simulation/spacedetector.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation/spacedetector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vehicleclasses/Car.py" beforeDir="false" afterPath="$PROJECT_DIR$/vehicleclasses/Car.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vehicleclasses/vehicle.py" beforeDir="false" afterPath="$PROJECT_DIR$/vehicleclasses/vehicle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pip-selfcheck.json" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pip-selfcheck.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,43 +23,44 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Pydm$Run_Accel.coverage" NAME="Run Sim Coverage Results" MODIFIED="1549329629730" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/execution" />
     <SUITE FILE_PATH="coverage/Pydm$compute.coverage" NAME="compute Coverage Results" MODIFIED="1549361402636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/simulation" />
-    <SUITE FILE_PATH="coverage/Pydm$Run_Sim.coverage" NAME="Run Sim Coverage Results" MODIFIED="1552259765359" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/execution" />
+    <SUITE FILE_PATH="coverage/Pydm$Run_Sim.coverage" NAME="Run Sim Coverage Results" MODIFIED="1552321346386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/execution" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-1855267356">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="5" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="7" />
-          <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="15" />
+          <entry key="project.open.time.9" value="3" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="53" />
+          <entry key="py" value="70" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="53" />
+          <entry key="Python" value="70" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="9" />
-          <entry key="py" value="13018" />
+          <entry key="py" value="15557" />
           <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="13" />
-          <entry key="Python" value="13018" />
+          <entry key="Python" value="15557" />
         </counts>
       </usages-collector>
     </session>
@@ -67,39 +68,21 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/simulation/pointdetector.py">
+        <entry file="file://$PROJECT_DIR$/simulation/bridgedetector.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/execution/parampop.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="119" column="22" selection-start-line="119" selection-start-column="22" selection-end-line="119" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-                <marker date="1552260335751" expanded="true" signature="194:195" ph="..." />
-                <marker date="1552260335751" expanded="true" signature="1668:3946" ph="..." />
-                <marker date="1552260335751" expanded="true" signature="2474:3946" ph="..." />
-                <marker date="1552260335751" expanded="true" signature="3998:3999" ph="..." />
-                <marker date="1552260335751" expanded="true" signature="5152:5157" ph="..." />
-              </folding>
+            <state relative-caret-position="221">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/execution/testsim.py">
+        <entry file="file://$PROJECT_DIR$/generation/basicgen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="653">
-              <caret line="133" selection-start-line="133" selection-end-line="133" />
+            <state relative-caret-position="286">
+              <caret line="28" column="133" lean-forward="true" selection-start-line="28" selection-start-column="133" selection-end-line="28" selection-end-column="133" />
               <folding>
-                <element signature="e#0#23#0" expanded="true" />
-                <marker date="1552259849557" expanded="true" signature="3538:3615" ph="..." />
+                <element signature="e#0#34#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -108,31 +91,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/simulation/spacedetector.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="48" column="56" lean-forward="true" selection-start-line="48" selection-start-column="56" selection-end-line="48" selection-end-column="56" />
+            <state relative-caret-position="496">
+              <caret line="42" column="57" lean-forward="true" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/execution/zone_creator.py">
+        <entry file="file://$PROJECT_DIR$/simulation/pointdetector.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+            <state relative-caret-position="323">
+              <caret line="19" column="70" selection-start-line="19" selection-start-column="70" selection-end-line="19" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/simulation/basicsim.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-37">
+              <caret line="52" selection-start-line="52" selection-end-line="52" />
               <folding>
-                <element signature="e#0#42#0" expanded="true" />
-                <marker date="1552252087753" expanded="true" signature="396:397" ph="..." />
-                <marker date="1552252087753" expanded="true" signature="518:595" ph="..." />
+                <element signature="e#0#26#0" expanded="true" />
+                <marker date="1552314998204" expanded="true" signature="359:360" ph="..." />
+                <marker date="1552314998204" expanded="true" signature="359:365" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/simulation/compute.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -140,12 +123,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vehicleclasses/vehicle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="26" lean-forward="true" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+            <state relative-caret-position="439">
+              <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
               <folding>
-                <marker date="1552251638626" expanded="true" signature="365:821" ph="..." />
-                <marker date="1552251638626" expanded="true" signature="815:816" ph="..." />
-                <marker date="1552251638626" expanded="true" signature="815:817" ph="..." />
+                <marker date="1552317744193" expanded="true" signature="365:849" ph="..." />
+                <marker date="1552317744193" expanded="true" signature="843:844" ph="..." />
+                <marker date="1552317744193" expanded="true" signature="843:845" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vehicleclasses/Truck.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vehicleclasses/Platoon.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+              <folding>
+                <marker date="1552321056931" expanded="true" signature="63:64" ph="..." />
               </folding>
             </state>
           </provider>
@@ -175,7 +179,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/generation/basicgen.py" />
         <option value="$PROJECT_DIR$/simulation/compute.py" />
         <option value="$PROJECT_DIR$/simulation/InhomZone.py" />
         <option value="$PROJECT_DIR$/simulation/point detector.py" />
@@ -183,14 +186,16 @@
         <option value="$PROJECT_DIR$/vehicleclasses/Truck.py" />
         <option value="$PROJECT_DIR$/execution/statistics.py" />
         <option value="$PROJECT_DIR$/vehicleclasses/Car.py" />
-        <option value="$PROJECT_DIR$/simulation/pointdetector.py" />
-        <option value="$PROJECT_DIR$/simulation/spacedetector.py" />
         <option value="$PROJECT_DIR$/simulation/inhomzone.py" />
+        <option value="$PROJECT_DIR$/simulation/pointdetector.py" />
         <option value="$PROJECT_DIR$/simulation/basicsim.py" />
         <option value="$PROJECT_DIR$/vehicleclasses/vehicle.py" />
-        <option value="$PROJECT_DIR$/execution/zone_creator.py" />
+        <option value="$PROJECT_DIR$/simulation/spacedetector.py" />
         <option value="$PROJECT_DIR$/execution/testsim.py" />
+        <option value="$PROJECT_DIR$/execution/zone_creator.py" />
         <option value="$PROJECT_DIR$/execution/parampop.py" />
+        <option value="$PROJECT_DIR$/vehicleclasses/Platoon.py" />
+        <option value="$PROJECT_DIR$/generation/basicgen.py" />
       </list>
     </option>
   </component>
@@ -212,17 +217,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="Pydm" type="b2602c69:ProjectViewProjectNode" />
               <item name="Pydm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pydm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pydm" type="462c0819:PsiDirectoryNode" />
-              <item name="execution" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Pydm" type="b2602c69:ProjectViewProjectNode" />
@@ -238,7 +239,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -350,15 +350,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.20682302" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20895523" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49946696" weight="0.329718" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4968017" weight="0.329718" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.48987207" weight="0.39804772" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.48987207" visible="true" weight="0.39804772" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -382,14 +381,14 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49946696" weight="0.329718" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4968017" weight="0.329718" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.48987207" visible="true" weight="0.39804772" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.48987207" visible="true" weight="0.39804772" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="10" sideWeight="0.5101279" side_tool="true" visible="true" weight="0.39804772" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5101279" side_tool="true" weight="0.39804772" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" sideWeight="0.49946696" weight="0.329718" />
@@ -411,64 +410,75 @@
     <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/execution/testsim.py</url>
+          <line>89</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="self.sim" />
         <watch expression="__py_debug_temp_var_112954824.space_detectors" />
         <watch expression="self.sim.point_detectors" />
         <watch expression="self.sim.bridge_detector[0]" />
+        <watch expression="__py_debug_temp_var_1801988693.point_detectors" />
+        <watch expression="__py_debug_temp_var_1801988693.point_detectors" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>InhomZone.get_parameter()</expression-string>
+        <expression-string>not(sum_avg_speed&gt;0)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>window.master.children['!menu']</expression-string>
+        <expression-string>not(sum_avg_speed)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>window.master.children.menu</expression-string>
+        <expression-string>sum_avg_speed</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>window.master.children</expression-string>
+        <expression-string>data_type.get()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>window.master</expression-string>
+        <expression-string>data_type.set('Speed')</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.graphical.get()</expression-string>
+        <expression-string>(detector.get_parameter(underscore(&quot;Data Type&quot;).replace(&quot; &quot;, &quot;_&quot;)))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>object.get_parameter('simulation_length')</expression-string>
+        <expression-string>detector.get_parameter('data_type')</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>underscore(field).replace(&quot; &quot;, &quot;_&quot;)</expression-string>
+        <expression-string>underscore(&quot;Data Type&quot;).replace(&quot; &quot;, &quot;_&quot;)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>object.getattr()</expression-string>
+        <expression-string>underscore(&quot;Data Type&quot;).replace(&quot; &quot;, &quot;_&quot;))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>entry[1].get()</expression-string>
+        <expression-string>detector</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -492,50 +502,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python3.7/Lib/tkinter/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38386">
-          <caret line="2261" selection-start-line="2261" selection-end-line="2261" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generation/basicgen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="23" column="16" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-            <marker date="1549973813635" expanded="true" signature="212:218" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulation/bridgedetector.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="21" selection-start-column="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/simulation/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vehicleclasses/Truck.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulation/inhomzone.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" lean-forward="true" selection-start-column="16" selection-end-column="16" />
-          <folding>
-            <marker date="1552246253805" expanded="true" signature="16:215" ph="..." />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/execution/statistics.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -547,14 +515,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulation/basicsim.py">
+    <entry file="file://C:/Python3.7/Lib/tkinter/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="16" column="29" lean-forward="true" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+        <state relative-caret-position="28917">
+          <caret line="1704" selection-start-line="1704" selection-end-line="1704" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/execution/testsim.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="207" lean-forward="true" selection-start-line="207" selection-end-line="207" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <marker date="1552251110319" expanded="true" signature="359:360" ph="..." />
-            <marker date="1552251110319" expanded="true" signature="359:365" ph="..." />
+            <element signature="e#0#23#0" expanded="true" />
+            <marker date="1552320592790" expanded="true" signature="4163:4722" ph="..." />
+            <marker date="1552320592790" expanded="true" signature="4391:4722" ph="..." />
+            <marker date="1552320592790" expanded="true" signature="4740:5987" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulation/compute.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulation/inhomzone.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="32" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="32" />
+          <folding>
+            <marker date="1552246253805" expanded="true" signature="16:215" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/execution/zone_creator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+            <marker date="1552320592778" expanded="true" signature="490:491" ph="..." />
+            <marker date="1552320592778" expanded="true" signature="881:993" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/execution/parampop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="730">
+          <caret line="198" column="68" lean-forward="true" selection-start-line="198" selection-start-column="68" selection-end-line="198" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -566,73 +581,81 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/xlsxwriter/workbook.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="305" selection-start-line="305" selection-end-line="305" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulation/bridgedetector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/simulation/pointdetector.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulation/compute.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vehicleclasses/vehicle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="26" lean-forward="true" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
-          <folding>
-            <marker date="1552251638626" expanded="true" signature="365:821" ph="..." />
-            <marker date="1552251638626" expanded="true" signature="815:816" ph="..." />
-            <marker date="1552251638626" expanded="true" signature="815:817" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/execution/testsim.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="653">
-          <caret line="133" selection-start-line="133" selection-end-line="133" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-            <marker date="1552259849557" expanded="true" signature="3538:3615" ph="..." />
-          </folding>
+        <state relative-caret-position="323">
+          <caret line="19" column="70" selection-start-line="19" selection-start-column="70" selection-end-line="19" selection-end-column="70" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/simulation/spacedetector.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="48" column="56" lean-forward="true" selection-start-line="48" selection-start-column="56" selection-end-line="48" selection-end-column="56" />
+        <state relative-caret-position="496">
+          <caret line="42" column="57" lean-forward="true" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/execution/zone_creator.py">
+    <entry file="file://$PROJECT_DIR$/simulation/basicsim.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        <state relative-caret-position="-37">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
           <folding>
-            <element signature="e#0#42#0" expanded="true" />
-            <marker date="1552252087753" expanded="true" signature="396:397" ph="..." />
-            <marker date="1552252087753" expanded="true" signature="518:595" ph="..." />
+            <element signature="e#0#26#0" expanded="true" />
+            <marker date="1552314998204" expanded="true" signature="359:360" ph="..." />
+            <marker date="1552314998204" expanded="true" signature="359:365" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/execution/parampop.py">
+    <entry file="file://$PROJECT_DIR$/generation/basicgen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="119" column="22" selection-start-line="119" selection-start-column="22" selection-end-line="119" selection-end-column="22" />
+        <state relative-caret-position="286">
+          <caret line="28" column="133" lean-forward="true" selection-start-line="28" selection-start-column="133" selection-end-line="28" selection-end-column="133" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
-            <marker date="1552260335751" expanded="true" signature="194:195" ph="..." />
-            <marker date="1552260335751" expanded="true" signature="1668:3946" ph="..." />
-            <marker date="1552260335751" expanded="true" signature="2474:3946" ph="..." />
-            <marker date="1552260335751" expanded="true" signature="3998:3999" ph="..." />
-            <marker date="1552260335751" expanded="true" signature="5152:5157" ph="..." />
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vehicleclasses/vehicle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+          <folding>
+            <marker date="1552317744193" expanded="true" signature="365:849" ph="..." />
+            <marker date="1552317744193" expanded="true" signature="843:844" ph="..." />
+            <marker date="1552317744193" expanded="true" signature="843:845" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vehicleclasses/Truck.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vehicleclasses/Platoon.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding>
+            <marker date="1552321056931" expanded="true" signature="63:64" ph="..." />
           </folding>
         </state>
       </provider>

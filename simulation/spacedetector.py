@@ -37,14 +37,17 @@ class SpaceDetector:
         sum_density = 0
         sum_avg_speed = 0
 
-        if self.type == "flow":
+        if self.type == "Flow":
             for snapshot in self.snapshots:
                 sum_density = sum_density + (len(snapshot[1])/self.length)
             average_density = sum_density/snapshot_amount
             self.agg_density.append((time, average_density))
-        if self.type == "speed":
+        if self.type == "Speed":
             for snapshot in self.snapshots:
-                sum_avg_speed = sum_avg_speed + mean(snapshot[1])
+                mean_speed = mean(snapshot[1])
+                if not mean_speed > 0:
+                    mean_speed = 0
+                sum_avg_speed = sum_avg_speed + mean_speed
             average_speed = sum_avg_speed/snapshot_amount
             self.agg_speed.append((time, average_speed))
 

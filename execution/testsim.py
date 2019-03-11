@@ -1,9 +1,11 @@
 from tkinter import ttk
 
+import xlsxwriter
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 
-from execution.parampop import generator_form, car_form, truck_form, simulation_form, inhom_form, specific_inhom_form
+from execution.parampop import generator_form, car_form, truck_form, simulation_form, inhom_form, specific_inhom_form, \
+    point_detector_form, specific_point_detector_form, space_detector_form, specific_space_detector_form
 from execution.statistics import stats_window
 from vehicleclasses.Car import Car
 from vehicleclasses.Truck import Truck
@@ -46,6 +48,14 @@ class MainWindow(object):
         self.inhomMenu.add_command(label="Add Inhomogenous Zone", command=self.inhom_parameters)
         menubar.add_cascade(label="Zones", menu=self.inhomMenu)
 
+        self.pointMenu = Menu(menubar)
+        self.pointMenu.add_command(label="Add Point Detector", command=self.point_detector_parameters)
+        menubar.add_cascade(label="Point Detectors", menu=self.pointMenu)
+
+        self.spaceMenu = Menu(menubar)
+        self.spaceMenu.add_command(label="Add Space Detector", command=self.space_detector_parameters)
+        menubar.add_cascade(label="Space Detectors", menu=self.spaceMenu)
+
         self.y = 100
         self.i = 0
         self.canvas.pack(fill=BOTH, expand=1)
@@ -72,7 +82,8 @@ class MainWindow(object):
     def stop(self):
         self.animation_state = "STOP"
         self.sim = BasicSim()
-
+        self.update_point_detectors()
+        self.update_zones()
         self.canvas.delete("all")
 
     def pause(self):
@@ -120,9 +131,63 @@ class MainWindow(object):
         win = Toplevel()
         specific_inhom_form(self, win, zone)
 
-    def sim_end(self):
+    def point_detector_parameters(self):
+
         win = Toplevel()
-        stats_window(self.sim, win)
+        point_detector_form(self, win)
+
+    def specific_point_detector(self, detector):
+
+        win = Toplevel()
+        specific_point_detector_form(self, win, detector)
+
+    def space_detector_parameters(self):
+
+        win = Toplevel()
+        space_detector_form(self, win)
+
+    def specific_space_detector(self, detector):
+
+        win = Toplevel()
+        specific_space_detector_form(self, win, detector)
+
+    def sim_end(self):
+        workbook = xlsxwriter.Workbook('Results01.xlsx')
+        detector = 1
+        for point in self.sim.point_detectors:
+            worksheet = workbook.add_worksheet("Point Detector " + str(detector))
+            row = 0
+            col = 0
+
+            if point.data_type == "Speed":
+                agg_data = point.agg_speeds
+            elif point.data_type == "Flow":
+                agg_data = point.agg_flows
+            for record in agg_data:
+                worksheet.write(row, col, (row+1)*point.aggregation_period)
+                worksheet.write(row, col + 1, record)
+                row += 1
+
+            detector += 1
+
+        detector = 1
+        for space in self.sim.space_detectors:
+            worksheet = workbook.add_worksheet("Space Detector " + str(detector))
+            row = 0
+            col = 0
+
+            if space.type == "Speed":
+                agg_data = space.agg_speed
+            elif space.type == "Flow":
+                agg_data = space.agg_density
+            for record in agg_data:
+                worksheet.write(row, col, (row+1)*space.agg_time_period)
+                worksheet.write(row, col + 1, record[1])
+                row += 1
+
+            detector += 1
+
+        workbook.close()
 
     def update_zones(self):
         self.inhomMenu.delete(0, 'end')
@@ -131,6 +196,24 @@ class MainWindow(object):
         for zone in self.sim.inhom_zones:
             i = i+1
             self.inhomMenu.add_command(label="Inhomogenous Zone"+str(i), command=lambda e=zone: self.specific_inhom(e))
+
+    def update_point_detectors(self):
+        self.pointMenu.delete(0, 'end')
+        self.pointMenu.add_command(label="Add Point Detector", command=self.point_detector_parameters)
+        i = 0
+        for detector in self.sim.point_detectors:
+            i = i + 1
+            self.pointMenu.add_command(label="Point Detector" + str(i),
+                                       command=lambda e=detector: self.specific_point_detector(e))
+
+    def update_space_detectors(self):
+        self.spaceMenu.delete(0, 'end')
+        self.spaceMenu.add_command(label="Add Space Detector", command=self.space_detector_parameters)
+        i = 0
+        for detector in self.sim.space_detectors:
+            i = i + 1
+            self.spaceMenu.add_command(label="Space Detector" + str(i),
+                                       command=lambda e=detector: self.specific_space_detector(e))
 
 
 
