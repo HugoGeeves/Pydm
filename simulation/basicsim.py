@@ -1,10 +1,6 @@
 import generation.basicgen
 from simulation.bridgedetector import BridgeDetector
 from simulation.compute import acceleration
-from simulation.inhomzone import InhomZone
-from simulation.pointdetector import PointDetector
-from simulation.spacedetector import SpaceDetector
-
 
 class BasicSim:
 

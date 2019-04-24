@@ -11,7 +11,11 @@ class Vehicle:
     minimum_spacing = 2
     length = 5
     colour = "blue"
+    speed_distribution = "Normal"
+    weight_distribution = "Normal"
+    spacing_distribution = "Normal"
     in_zone = False
+
 
     def zone_update(self, zones):
         for zone in zones:

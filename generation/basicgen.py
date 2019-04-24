@@ -42,3 +42,4 @@ class BasicTrafficGen:
     @classmethod
     def get_parameter(cls, parameter):
         return getattr(cls, parameter)
+

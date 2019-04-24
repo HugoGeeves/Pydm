@@ -25,6 +25,31 @@ def car_form(sim, window):
     fields = ["Desired Velocity", "Safe Time Headway", "Maximum Acceleration", "Comfortable Deceleration",
               "Acceleration Exponent", "Minimum Spacing", "Length"]
     variables = make_fields(window, fields, sim.generator.car_model)
+    desired_speed_dist = StringVar()
+    min_spacing_dist = StringVar()
+    weight_dist = StringVar()
+
+    desired_speed_dist.set(sim.generator.car_model.get_parameter(underscore("Speed Distribution").replace(" ", "_")))
+    min_spacing_dist.set(sim.generator.car_model.get_parameter(underscore("Spacing Distribution").replace(" ", "_")))
+    weight_dist.set(sim.generator.car_model.get_parameter(underscore("Weight Distribution").replace(" ", "_")))
+
+    choices = {'Normal', 'Uniform', 'Bimodal'}
+
+    speed_distribution = OptionMenu(window, desired_speed_dist, *choices)
+    spacing_distribution = OptionMenu(window, min_spacing_dist, *choices)
+    weight_distribution = OptionMenu(window, weight_dist, *choices, )
+
+    Label(window, text="Speed Distribution").pack(side=TOP, fill=X, padx=5, pady=5)
+    speed_distribution.pack(side=TOP, fill=X, padx=5, pady=5)
+    Label(window, text="Spacing Distribution").pack(side=TOP, fill=X, padx=5, pady=5)
+    spacing_distribution.pack(side=TOP, fill=X, padx=5, pady=5)
+    Label(window, text="Weight Distribution").pack(side=TOP, fill=X, padx=5, pady=5)
+    weight_distribution.pack(side=TOP, fill=X, padx=5, pady=5)
+
+    variables.append(("Speed Distribution", desired_speed_dist))
+    variables.append(("Spacing Distribution", min_spacing_dist))
+    variables.append(("Weight Distribution", weight_dist))
+
     b1 = Button(window, text='Save',
                 command=(lambda e=variables:
                          sim.generator.car_model.update_parameters(parse_entries(e))))
@@ -37,6 +62,32 @@ def truck_form(sim, window):
     fields = ["Desired Velocity", "Safe Time Headway", "Maximum Acceleration", "Comfortable Deceleration",
               "Acceleration Exponent", "Minimum Spacing", "Length"]
     variables = make_fields(window, fields, sim.generator.truck_model)
+
+    desired_speed_dist = StringVar()
+    min_spacing_dist = StringVar()
+    weight_dist = StringVar()
+
+    desired_speed_dist.set(sim.generator.truck_model.get_parameter(underscore("Speed Distribution").replace(" ", "_")))
+    min_spacing_dist.set(sim.generator.truck_model.get_parameter(underscore("Spacing Distribution").replace(" ", "_")))
+    weight_dist.set(sim.generator.truck_model.get_parameter(underscore("Weight Distribution").replace(" ", "_")))
+
+    choices = {'Normal', 'Uniform', 'Bimodal'}
+
+    speed_distribution = OptionMenu(window, desired_speed_dist, *choices)
+    spacing_distribution = OptionMenu(window, min_spacing_dist, *choices)
+    weight_distribution = OptionMenu(window, weight_dist, *choices, )
+
+    Label(window, text="Speed Distribution").pack(side=TOP, fill=X, padx=5, pady=5)
+    speed_distribution.pack(side=TOP, fill=X, padx=5, pady=5)
+    Label(window, text="Spacing Distribution").pack(side=TOP, fill=X, padx=5, pady=5)
+    spacing_distribution.pack(side=TOP, fill=X, padx=5, pady=5)
+    Label(window, text="Weight Distribution").pack(side=TOP, fill=X, padx=5, pady=5)
+    weight_distribution.pack(side=TOP, fill=X, padx=5, pady=5)
+
+    variables.append(("Speed Distribution", desired_speed_dist))
+    variables.append(("Spacing Distribution", min_spacing_dist))
+    variables.append(("Weight Distribution", weight_dist))
+
     b1 = Button(window, text='Save',
                 command=(lambda e=variables:
                          sim.generator.truck_model.update_parameters(parse_entries(e))))

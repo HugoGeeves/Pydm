@@ -67,13 +67,23 @@ class MainWindow(object):
             self.canvas.delete("all")
             vehicles = self.sim.step(self.i)
             for vehicle in vehicles:
-                self.canvas.create_rectangle(
-                    vehicle.position-vehicle.length,
-                    self.y,
-                    vehicle.position,
-                    self.y+50,
-                    fill=vehicle.colour
-                )
+                if vehicle.__class__.__name__ is not "Platoon":
+                    self.canvas.create_rectangle(
+                        vehicle.position-vehicle.length,
+                        self.y,
+                        vehicle.position,
+                        self.y+50,
+                        fill=vehicle.colour
+                    )
+                else:
+                    for i in range(0,vehicle.size):
+                        self.canvas.create_rectangle(
+                            (vehicle.position-(i*(vehicle.indiv_length+vehicle.follower_gap)))-vehicle.indiv_length,
+                            self.y,
+                            (vehicle.position - (i * (vehicle.indiv_length + vehicle.follower_gap))),
+                            self.y+50,
+                            fill=vehicle.colour
+                        )
 
             self.i = self.i + 1
 
@@ -195,7 +205,7 @@ class MainWindow(object):
         i = 0
         for zone in self.sim.inhom_zones:
             i = i+1
-            self.inhomMenu.add_command(label="Inhomogenous Zone"+str(i), command=lambda e=zone: self.specific_inhom(e))
+            self.inhomMenu.add_command(label="Inhomogenous Zone "+str(i), command=lambda e=zone: self.specific_inhom(e))
 
     def update_point_detectors(self):
         self.pointMenu.delete(0, 'end')
@@ -203,7 +213,7 @@ class MainWindow(object):
         i = 0
         for detector in self.sim.point_detectors:
             i = i + 1
-            self.pointMenu.add_command(label="Point Detector" + str(i),
+            self.pointMenu.add_command(label="Point Detector " + str(i),
                                        command=lambda e=detector: self.specific_point_detector(e))
 
     def update_space_detectors(self):
@@ -212,12 +222,8 @@ class MainWindow(object):
         i = 0
         for detector in self.sim.space_detectors:
             i = i + 1
-            self.spaceMenu.add_command(label="Space Detector" + str(i),
+            self.spaceMenu.add_command(label="Space Detector " + str(i),
                                        command=lambda e=detector: self.specific_space_detector(e))
-
-
-
-
 
 
 MainWindow()
