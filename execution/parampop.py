@@ -10,8 +10,8 @@ from simulation.spacedetector import SpaceDetector
 
 def generator_form(sim, window):
 
-    window.title = "Edit Generator Parameters"
-    fields = ["Minimum Headway", "Free Vehicle Proportion", "Scale Parameter"]
+    window.title("Edit Generator Parameters")
+    fields = [("Flow", "(veh/h)")]
     variables = make_fields(window, fields, sim.generator)
     b1 = Button(window, text='Save',
                 command=(lambda e=variables:
@@ -21,9 +21,9 @@ def generator_form(sim, window):
 
 def car_form(sim, window):
 
-    window.title = "Edit Car Parameters"
-    fields = ["Desired Velocity", "Safe Time Headway", "Maximum Acceleration", "Comfortable Deceleration",
-              "Acceleration Exponent", "Minimum Spacing", "Length"]
+    window.title("Edit Car Parameters")
+    fields = [("Desired Velocity","(m/s)"), ("Safe Time Headway","(s)"), ("Maximum Acceleration","(m/s^2)"), ("Comfortable Deceleration","(m/s^2)"),
+              ("Acceleration Exponent",""), ("Minimum Spacing","(m)"), ("Length","(m)")]
     variables = make_fields(window, fields, sim.generator.car_model)
     desired_speed_dist = StringVar()
     min_spacing_dist = StringVar()
@@ -35,6 +35,7 @@ def car_form(sim, window):
 
     choices = {'Normal', 'Uniform', 'Bimodal'}
 
+    
     speed_distribution = OptionMenu(window, desired_speed_dist, *choices)
     spacing_distribution = OptionMenu(window, min_spacing_dist, *choices)
     weight_distribution = OptionMenu(window, weight_dist, *choices, )
@@ -49,7 +50,7 @@ def car_form(sim, window):
     variables.append(("Speed Distribution", desired_speed_dist))
     variables.append(("Spacing Distribution", min_spacing_dist))
     variables.append(("Weight Distribution", weight_dist))
-
+    
     b1 = Button(window, text='Save',
                 command=(lambda e=variables:
                          sim.generator.car_model.update_parameters(parse_entries(e))))
@@ -58,9 +59,9 @@ def car_form(sim, window):
 
 def truck_form(sim, window):
 
-    window.title = "Edit Truck Parameters"
-    fields = ["Desired Velocity", "Safe Time Headway", "Maximum Acceleration", "Comfortable Deceleration",
-              "Acceleration Exponent", "Minimum Spacing", "Length"]
+    window.title("Edit Truck Parameters")
+    fields = [("Desired Velocity","(m/s)"), ("Safe Time Headway","(s)"), ("Maximum Acceleration","(m/s^2)"), ("Comfortable Deceleration","(m/s^2)"),
+              ("Acceleration Exponent",""), ("Minimum Spacing","(m)"), ("Length","(m)")]
     variables = make_fields(window, fields, sim.generator.truck_model)
 
     desired_speed_dist = StringVar()
@@ -92,23 +93,38 @@ def truck_form(sim, window):
                 command=(lambda e=variables:
                          sim.generator.truck_model.update_parameters(parse_entries(e))))
     b1.pack(side=LEFT, padx=5, pady=5)
+    window.mainloop()
+
+
+def platoon_form(sim, window):
+
+    window.title("Edit Platoon Parameters")
+    fields = [("Platoon Size", ""), ("Follower Gap", "(m)")]
+    variables = make_fields(window, fields, sim.generator.platoon_model)
+
+    b1 = Button(window, text='Save',
+                command=(lambda e=variables:
+                         sim.generator.platoon_model.update_parameters(parse_entries(e))))
+    b1.pack(side=LEFT, padx=5, pady=5)
+    window.mainloop()
 
 
 def simulation_form(sim, window):
 
-    window.title = "Edit Simulator Parameters"
-    fields = ["Simulation Length", "Bridge Length", "Step Size"]
+    window.title("Simulation Parameters")
+    fields = [("Simulation Length","(m)"), ("Bridge Length","(m)"), ("Step Size","(s)")]
     variables = make_fields(window, fields, sim)
     b1 = Button(window, text='Save',
                 command=(lambda e=variables:
                          sim.update_parameters(parse_entries(e))))
     b1.pack(side=LEFT, padx=5, pady=5)
+    window.mainloop()
 
 
 def inhom_form(sim, window):
 
-    window.title = "Add inhomogenous zone"
-    fields = ["Zone Start position", "Zone End Position", "New Safe Time Headway"]
+    window.title("Add inhomogenous zone")
+    fields = [("Zone Start position","(m)"), ("Zone End Position","(m)"), ("New Safe Time Headway","(s)")]
     variables = make_fields(window, fields, InhomZone, create=True)
 
     b1 = Button(window, text='Save',
@@ -135,7 +151,7 @@ def specific_inhom_form(sim, window, zone):
 def point_detector_form(sim, window):
 
     window.title = "Add point detector"
-    fields = ["Position", "Aggregation Period"]
+    fields = [("Position","(m)"), ("Aggregation Period","(s)")]
 
     variables = make_fields(window, fields, PointDetector, create=True)
     data_type = StringVar()
@@ -186,8 +202,8 @@ def specific_point_detector_form(sim, window, detector):
 
 def space_detector_form(sim, window):
 
-    window.title = "Add space detector"
-    fields = ["Start", "End", "Aggregation Period"]
+    window.title("Add space detector")
+    fields = [("Start","(m)"), ("End","(m)"), ("Aggregation Period","(s)")]
 
     variables = make_fields(window, fields, SpaceDetector, create=True)
     data_type = StringVar()
@@ -236,6 +252,25 @@ def specific_space_detector_form(sim, window, detector):
     b1.pack(side=LEFT, padx=5, pady=5)
     b2.pack(side=LEFT, padx=5, pady=5)
 
+def bridge_detector_form(sim, window):
+    window.title("Bridge Detector")
+    fields = [("Aggregation Period", "(s)")]
+
+    variables = make_fields(window, fields, sim.bridge_detector[0])
+    mode = StringVar()
+
+    mode.set(sim.bridge_detector[0].get_parameter(underscore("Mode").replace(" ", "_")))
+
+    rb1 = Radiobutton(window, text="Microscopic", variable=mode, value="Microscopic")
+    rb2 = Radiobutton(window, text="Block Maxima", variable=mode, value="Block Maxima")
+    rb1.pack(side=TOP, fill=X, padx=5, pady=5)
+    rb2.pack(side=TOP, fill=X, padx=5, pady=5)
+    variables.append(("Mode", mode))
+    b1 = Button(window, text='Save',
+                command=(lambda e=variables:
+                         sim.bridge_detector[0].update_parameters(parse_entries(e))))
+    b1.pack(side=LEFT, padx=5, pady=5)
+
 
 def make_fields(root, fields, object, create=False):
     entries = []
@@ -244,9 +279,9 @@ def make_fields(root, fields, object, create=False):
     for field in fields:
         row = Frame(root)
         if not create:
-            param = str(object.get_parameter(underscore(field).replace(" ", "_")))
-        if isinstance(field, str):
-            lab = Label(row, text=field, anchor='w')
+            param = str(object.get_parameter(underscore(field[0]).replace(" ", "_")))
+        if isinstance(field[0], str):
+            lab = Label(row, text=(field[0]+' '+field[1]), anchor='w')
             ent = Entry(row, validate='key', validatecommand=vcmd, )
             ent.delete(0, END)
         else:
@@ -258,7 +293,7 @@ def make_fields(root, fields, object, create=False):
         row.pack(side=TOP, fill=X, padx=5, pady=5)
         lab.pack(side=LEFT)
         ent.pack(side=RIGHT, expand=YES, fill=X)
-        entries.append((field, ent))
+        entries.append((field[0], ent))
     return entries
 
 
